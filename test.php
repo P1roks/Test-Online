@@ -8,7 +8,13 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <h1 id="test"><a href="index.html"><img src="home.png"></a><span>TEST ONLINE - INF.03</span></h1>
+    <h1 id="test">
+	<a href="index.html" class="edge">
+		<img src="home.png">
+	</a>
+	<div id="text">TEST ONLINE - INF.03</div>
+	<div id="dummy" class="edge"></div>
+    </h1>
     <form action="check.php" method="POST">
     <?php
     include 'questions.php';
