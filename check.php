@@ -30,7 +30,13 @@
     </style>
 </head>
 <body>
-    <h1 id="test"><a href="index.html"><img src="home.png"></a><span>TEST ONLINE - INF.03</span></h1>
+    <h1 id="test">
+	<a href="index.html" class="edge">
+		<img src="home.png">
+	</a>
+	<div id="text">TEST ONLINE - INF.03</div>
+	<div id="dummy" class="edge"></div>
+    </h1>
 
     <?php
     include 'questions.php';
@@ -42,6 +48,8 @@
     $points = 0;
     $maxPoints = 0;
 
+    echo "<div id=\"checked\">";
+    echo "<div id=\"allQuest\">";
     for($i = 0; $i < $length; ++$i)
     {
         $j = $i+1;
@@ -74,12 +82,14 @@
              "<span class=\"wrong\">Twoja odpowiedź:". $currentQuestion->Answers[abs($_POST["$i"])] ."</span>" .
              "</div>";
     }
+    echo "</div>";
 
     $odmiana = $points == 1 ? "punkt" : (($points<=4 && $points!=0) ? "punkty" : "punktów");
     $odmianaMax = $maxPoints == 1 ? "punkt" : (($maxPoints<=4 && $maxPoints!=0) ? "punkty" : "punktów");
 
     $procent = round($points/$maxPoints * 100,2);
     echo "<div id=\"result\">Uzyskałeś $points $odmiana. Maksymalny wynik to $maxPoints $odmianaMax. Stanowi to $procent%</div>";
+    echo "</div>";
     ?>
 </body>
 </html>

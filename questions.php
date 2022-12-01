@@ -1,7 +1,7 @@
 <?php
     class Question{
         public $question,$index,$points,$Answers;
-        public static $numberOfQuestion = 1;
+        //public static $numberOfQuestion = 1;
 
         function __construct(string $question,array $Answers,int $index,int $points)
         {
@@ -24,8 +24,9 @@
         {
             echo "<div class=\"quest\">";
 
-            echo "<h3>" . Question::$numberOfQuestion . "." . $this->question . " (" . $this->points . "pkt.)</h1>";
+            echo "<h3><p class=\"id\">" /* . Question::$numberOfQuestion . */. "</p><p class=\"content\">" . $this->question . "</p> (" . $this->points . "pkt.)</h1>";
             
+	    echo "<div class=\"answers\">";
             for($i = 0, $l='A'; $i<4; ++$i,++$l)
             {
             $value = $this->checkIndex($i);
@@ -34,10 +35,8 @@
             <input type=\"radio\" name=\"$name\" value=$value id=\"$label\">
             <label for=\"$label\">$l." .  $this->Answers[$i] . "</label></div>";
             }
-
             echo "</div>";
-
-            ++Question::$numberOfQuestion;
+            echo "</div>";
         }
 
         public function correctAnswer(): string
@@ -82,7 +81,7 @@
             "int foo(float a);",
             "float foo(int a)"
         ],2,1),
-        new Question(" W języku HTML atrybut alt znacznika img jest wykorzystywany w celu zdefiniowania",[
+        new Question("W języku HTML atrybut alt znacznika img jest wykorzystywany w celu zdefiniowania",[
             "tekstu, który będzie wyświetlony, jeśli nie może być wyświetlona grafika",
             "ścieżki i nazwy pliku źródłowego grafiki",
             "podpisu, który zostanie wyświetlony pod grafiką",
